@@ -37,7 +37,8 @@ public class Reading extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String date = request.getParameter("date");
-		String pathname = "/Users/jiangchenzhou/Desktop/IosService/Reading/" + date + ".txt";
+		String reco = request.getParameter("who");
+		String pathname = "/Users/jiangchenzhou/Desktop/IosService/Reading/" + date + reco + ".txt";
 		File file = new File(pathname);
 		if (!file.exists()) {
 			System.out.println("文件不存在");
@@ -46,6 +47,8 @@ public class Reading extends HttpServlet {
 			JSONObject studentJSONObject = new JSONObject();
 			Scanner input = new Scanner(file);
 			String value = "";
+			String title = input.nextLine();
+			String author = input.nextLine();
 			while (input.hasNextLine()) {
 				String text = input.nextLine();
 				System.out.println(text);
@@ -54,9 +57,9 @@ public class Reading extends HttpServlet {
 
 			}
 			value = value.replace("\n","");
-			studentJSONObject.put("name", "Jason");
-			studentJSONObject.put("id", 20130001);
-			studentJSONObject.put("phone", "13579246810");
+			studentJSONObject.put("author", author);
+			studentJSONObject.put("title", title);
+			studentJSONObject.put("recommder", "");
 			studentJSONObject.put("article", value);
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/json");
