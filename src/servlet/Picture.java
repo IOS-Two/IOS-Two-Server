@@ -34,7 +34,8 @@ public class Picture extends HttpServlet {
 		// TODO Auto-generated method stub
 		String date = request.getParameter("date");
 		String reco = request.getParameter("who");
-		String pathname = "/Users/jiangchenzhou/Desktop/IosService/picture/" + date + reco + ".txt";
+		String folder = date + reco;
+		String pathname = "/Users/jiangchenzhou/Desktop/IosService/WebContent/picture/" + folder + "/" + folder + ".txt";
 		File file = new File(pathname);
 		if (!file.exists()) {
 			System.out.println("文件不存在");
@@ -44,6 +45,7 @@ public class Picture extends HttpServlet {
 			Scanner input = new Scanner(file);
 			String value = "";
 			String url = input.nextLine();
+			String title = input.nextLine();
 			String author = input.nextLine();
 			while (input.hasNextLine()) {
 				String text = input.nextLine();
@@ -54,6 +56,7 @@ public class Picture extends HttpServlet {
 			}
 			//value = value.replace("\n","");
 			PictureJSONObject.put("url", url);
+			PictureJSONObject.put("title", title);
 			if (reco.equals("j"))
 				PictureJSONObject.put("recommender", "JCZ");
 			else 
