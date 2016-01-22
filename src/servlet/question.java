@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.MessageHandler.Whole;
 
 import org.json.JSONObject;
 
@@ -33,7 +34,8 @@ public class question extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String date = request.getParameter("date");
-		String pathname = "/Users/jiangchenzhou/Desktop/IosService/question/" + date + ".txt";
+		String reco = request.getParameter("who");
+		String pathname = "/Users/jiangchenzhou/Desktop/IosService/question/" + date + reco + ".txt";
 		File file = new File(pathname);
 		if (!file.exists()) {
 			System.out.println("文件不存在");

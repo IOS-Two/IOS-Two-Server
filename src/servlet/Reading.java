@@ -39,6 +39,7 @@ public class Reading extends HttpServlet {
 		String date = request.getParameter("date");
 		String reco = request.getParameter("who");
 		String pathname = "/Users/jiangchenzhou/Desktop/IosService/Reading/" + date + reco + ".txt";
+		System.out.println(pathname);
 		File file = new File(pathname);
 		if (!file.exists()) {
 			System.out.println("文件不存在");
@@ -51,8 +52,7 @@ public class Reading extends HttpServlet {
 			String author = input.nextLine();
 			while (input.hasNextLine()) {
 				String text = input.nextLine();
-				System.out.println(text);
-
+				//System.out.println(text);
 				value += text;
 
 			}
