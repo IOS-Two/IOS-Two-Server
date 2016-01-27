@@ -35,7 +35,7 @@ public class Reading extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub、
 		String date = request.getParameter("date");
 		String reco = request.getParameter("who");
 		String pathname = "/Users/jiangchenzhou/Desktop/IosService/Reading/" + date + reco + ".txt";

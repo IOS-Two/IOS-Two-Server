@@ -1,3 +1,0 @@
-http://localhost:8080/IosService/haha.jpg
-haha
-<p>美美哒智孝欧尼~</p><br>
